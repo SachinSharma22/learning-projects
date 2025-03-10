@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+        function getFee(isMamber){
+            return isMamber ?"$2.00" : "$10.00";
+        }
+
+        // document.getElementById('demo').innerHTML = getFee(true);
+        // document.getElementById('demo').innerHTML = getFee(false);
+        document.getElementById('demo').innerHTML = getFee(null);
+    </script>
+    <script>
+        const age = 26;
+        const beverage = age >= 21 ?'beer' : 'juice';
+        demo.textContent = beverage;
+    </script>
+
+    <script>
+        const greeting = (person) =>{
+            const name = person ? person.name : "stranger";
+            return `Howdy, ${name}`;
+        };
+
+        // demo.textContent = greeting({name:"Sachin"});
+        demo.textContent = greeting(null);
+
+    </script>
+</body>
+</html>
