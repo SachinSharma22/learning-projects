@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        let i = 0;
+
+        while(i < 6){
+            if(i === 3){
+                break;
+            }
+            i = i + 1;
+        }
+        // const para = document.querySelector('p');
+        // para.textContent = "The output is: " + i; 
+    </script>
+
+    
+    <script>
+        function testBreak(x) {
+            let i = 0;
+
+            while(i < 6) {
+                if(i === 3) {
+                    break;
+                }
+
+                i += 1;
+            }
+
+            return i*x;
+        }
+
+        const para1 = document.querySelector('p');
+        para1.textContent = testBreak(5);
+    </script>
+
+    <script>
+        const food = "sushi";
+
+        const para = document.querySelector('p');
+        switch (food) {
+            case "sushi":
+                para.textContent = "Sushi is originally from Japan";
+                // console.log("Japan");
+            break;
+            case "pizza":
+                para.textContent = "Pizza is originally from Italy";
+            break;
+            default:
+                para.textContent = "I have never heard of that dish.";
+            break;
+        }
+    </script>
+
+    <script>
+        outerBlock: {
+            innerBlock: {
+
+                console.log("1");
+                break outerBlock;
+                // break;
+                // console.log("Mango");
+            }
+            console.log("2");
+        }
+    </script>
+</body>
+</html>
