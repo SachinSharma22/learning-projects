@@ -98,4 +98,18 @@ for(let i = 0; i<10; i++) {
 }
 
 
+// Async Function 
+
+async function fetchUserData(userId) {
+    try{
+        const response = await fetch(`https://api.example.com/users/${userId}`);
+        const data = await response.json();
+        return data;
+    }catch(error){
+        console.error('Failed to fetch user data:', error);
+    }
+}
+
+fetchUserData(123).then(data => console.log(data));
+
 
