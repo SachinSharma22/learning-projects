@@ -1,32 +1,30 @@
 const startGameBtn = document.getElementById('start-game-btn');
 
-// This is function decleration
+const ROCK = 'ROCK';
+const PAPER = 'PAPER';
+const SCISSORS = 'SCISSORS';
+const DEFAULT_USER_CHOICE = ROCK;
+let gameIsRunning = false;
 
-// function startGame() {
-//     console.log('Game is starting...');
-// }
-
-// This is what we called is function expression in JavaScript
-
-// const start = function startGame() {
-//     console.log('Game is starting...');
-// }
-
-
-const person = {
-    name:'sachin',
-    greet: function greet() {
-        console.log("hello there!");
+const getPlayerChoice = function() {
+    const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}?`, '').toUpperCase();
+    if(
+        selection !== ROCK &&
+        selection !== PAPER &&
+        selection !== SCISSORS
+    ) {
+        alert(`Invalid choice! We chose ${ROCK} for you!`);
+        return DEFAULT_USER_CHOICE;
     }
+    return selection;
 };
 
-person.greet();
-
-
-// console.log(typeof startGame);
-// console.dir(startGame);
-// startGameBtn.addEventListener('click', startGame);
-// startGameBtn.addEventListener('click', start);
 startGameBtn.addEventListener('click', function() {
+    if(gameIsRunning){
+        return;
+    }
+    gameIsRunning = true;
     console.log("Game is starting...");
+    const playerSelection = getPlayerChoice();
+    console.log(playerSelection);
 });
