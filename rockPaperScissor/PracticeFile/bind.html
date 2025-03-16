@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <script>
+        const module = {
+            x: 42,
+            getX: function () {
+                return this.x;
+            },
+        };
+        const unboundGetX = module.getX;
+        console.log(unboundGetX());//This function gets invoked at the global scope
+        // Expected output : undefined
+
+        const boundGetX = unboundGetX.bind(module);
+        console.log(boundGetX());
+        //Expected output: 42
+    </script>
+-->
+<!--
+    <script>
+        this.x = 9;
+        const module = {
+            x: 18,
+            getX() {
+                return this.x;
+            },
+        };
+
+        console.log(module.getX());
+
+        const retrieveX = module.getX;
+        console.log(retrieveX());
+
+        const boundGetX = retrieveX.bind(module);
+        console.log(boundGetX());
+    </script>-->
+
+    <script>
+        const person = {
+            firstName: 'sachin',
+            lastName: 'sharma',
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        };
+
+        const getFullName = person.fullName;
+        console.log(getFullName());
+
+        // Bind `this` to `person`
+        const boundGetFullName = person.fullName.bind(person);
+        console.log(boundGetFullName());
+    </script>
+
+    <script>
+        function greet(greeting, name) {
+            console.log(greeting + ', ' + name);
+        }
+
+        const greetHello = greet.bind(null, 'hello');
+        greetHello('alice');
+        greetHello('bob');
+    </script>
+
+    <script>
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        const createPerson =  Person.bind(null, 'John');
+        const john = new createPerson('Doe');
+        console.log(john.firstName)
+        console.log(john.lastName)
+    </script>
+
+    <script>
+        let nameObj = {
+            name: "tony"
+        }
+
+        let PrintName = {
+            name: "stevve",
+            sayHi: function () {
+                // Here "this " points to nameObj
+                console.log(this.name);
+            }
+        }
+
+        // let HiFun = PrintName.sayHi.bind(nameObj);
+        // HiFun();
+
+        Object.prototype.MyBind = function (bindObj) {
+            //Here "this" will be sayHi function
+            bindObj.myMethod = this;
+            return function () {
+                bindObj.myMethod();
+            }
+        }
+
+        let HiFun = PrintName.sayHi.bind(nameObj);
+        HiFun();
+    </script>
+</body>
+</html>
