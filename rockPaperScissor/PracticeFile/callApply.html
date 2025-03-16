@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nameObj = {
+            name: "Tony"
+        }
+
+        let PrintName = {
+            name: "steve",
+            sayHi: function(age) {
+                console.log(this.name + " age is " + age);
+            } 
+        }
+
+        // PrintName.sayHi.call(nameObj, 32);
+        PrintName.sayHi.apply(nameObj, [32]);
+    </script>
+</body>
+</html>
